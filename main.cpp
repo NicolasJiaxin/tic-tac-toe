@@ -10,14 +10,16 @@ int main()
     bool hasWinner = false;
     bool isValid;
     int row, col;
-    int turn = 2;
-    while (!hasWinner) {
-        turn = turn - pow(-1,turn);
+    int player = 2;
+    int numofturns = 0;
+
+    while (numofturns < 9) {
+        player = player - pow(-1,player);
         isValid = false;
+        cout << "PLAYER " << player << "'s turn:" << endl;
         cout << "Current state: " << endl;
         printGrid(grid);
         while(!isValid) {
-            cout << "PLAYER " << turn << ":" << endl;
             cout << "Enter row (0-2):" << endl;
             cin >> row;
             while (row > 2 || row < 0) {
@@ -31,7 +33,7 @@ int main()
                 cin >> col;
             }
             if(grid[row][col] == 0) {
-                grid[row][col] = turn;
+                grid[row][col] = player;
                 isValid = true;
             }
             else {
@@ -39,5 +41,16 @@ int main()
                 printGrid(grid);
             }
         }
+
+        if (checkWinner(grid,row,col)) {
+            cout << endl;
+            cout << "PLAYER " << player << " HAS WON!!!" << endl;
+            printGrid(grid);
+            return 0;
+        }
+        numofturns++;
+        cout << endl << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
     }
+    cout << "DRAW." << endl;
+    return 0;
 }
