@@ -11,5 +11,5 @@ class Game {
         void printGrid();
         bool checkWinner(int i,int j);
         void doTurn(int turn,bool isHuman);
-        int* minimax(bool maximaxing);
+        int* minimax(int depth,bool maximaxing);
 };

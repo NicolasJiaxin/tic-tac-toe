@@ -55,8 +55,10 @@ int main()
     }
 
     if (game.numofturns == 9) {
-        cout << "DRAW." << endl;
+        cout << endl <<  "DRAW" << endl;
+        cout << endl << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl;
     }
     game.printGrid();
+    cout << endl;
     return 0;
 }

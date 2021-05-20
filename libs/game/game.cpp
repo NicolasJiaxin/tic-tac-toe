@@ -25,7 +25,7 @@ void Game::printGrid()
                 case 1:
                 std::cout << " x";
                 break;
-                case 2:
+                case -1:
                 std::cout << " o";
                 break;
             }
@@ -107,20 +107,29 @@ void Game::doTurn(int turn,bool isHuman)
             std::cin.ignore(1000,'\n');
         }
     }
-    /*
+    
     else {
         std::cout << "THINKING..." << std::endl;
         bool maximazing = turn % 2;
-        int *move = minimax(maximazing);
+        std::cout << std::boolalpha << maximazing << numofturns << std::endl;
+        int *move = minimax(numofturns,maximazing);
         row = move[0];
         col = move[1];
         std::cout << "MOVE: " << row << ',' << col << std::endl;
     }
-    */
-    grid[row][col] = turn;
+
+    switch(turn)
+    {
+        case 1:
+        grid[row][col] = 1;
+        break;
+        case 2:
+        grid[row][col] = -1;
+        break;
+    }
     
     if (checkWinner(row,col)) {
-        std::cout << std::endl;
+        std::cout << std::endl << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl << std::endl;
         std::cout << "PLAYER " << turn << " HAS WON!!!" << std::endl;
         isOver = true;
     }
