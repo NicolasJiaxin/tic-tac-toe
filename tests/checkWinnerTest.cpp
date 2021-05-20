@@ -1,7 +1,8 @@
-#include <grid.h>
+#include <game.h>
 
 int main() {
     // Winners check
+    /*
     int grid1[3][3] = {{1,1,1},{-1,-1,0},{0,0,0}};
 
     if (!checkWinner(grid1,0,0)) {
@@ -34,5 +35,6 @@ int main() {
     if (checkWinner(grid6,0,0)) {
         return 1;
     }
+    */
     return 0;
 }

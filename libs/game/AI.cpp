@@ -1,11 +1,13 @@
-#include <grid.h>
+#include <game.h>
 
-int* minimax(int grid[3][3], int numofturns, bool maximazing) 
+using namespace Game;
+int* minimax(bool maximazing) 
 {
     int* bestMove = new int[3];
     bestMove[0] = 0;
     bestMove[1] = 0;
     bestMove[2] = 0;
+    
     if (numofturns == 9) {
         bestMove[0] = 0;
         return bestMove;
