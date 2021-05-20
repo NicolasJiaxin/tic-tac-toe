@@ -12,7 +12,16 @@ int main()
     int row, col;
     int player = 2;
     int numofturns = 0;
+    int numofplayers;
 
+    cout << "WELCOME TO TIC-TAC-TOE" << endl << "How many players?" << endl;
+    cin >> numofplayers;
+    while (cin.fail() || numofplayers > 2 || numofplayers < 1) {
+        cin.clear();
+        cin.ignore(1000,'\n');
+        cout << "INVALID. Try again." << endl;
+        cin >> numofplayers;
+    }
     while (numofturns < 9) {
         player = player - pow(-1,player);
         isValid = false;
@@ -36,7 +45,7 @@ int main()
                 cout << "INVALID. Current state: " << endl;
                 printGrid(grid);
             }
-            cin.ignore(1000, '\n');
+            cin.ignore(1000,'\n');
         }
 
         if (checkWinner(grid,row,col)) {
