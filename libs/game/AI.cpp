@@ -2,10 +2,8 @@
 
 int* Game::minimax(int depth,bool maximazing) 
 {
-    int* bestMove = new int[3];
-    bestMove[0] = 0;
-    bestMove[1] = 0;
-    bestMove[2] = 0;
+    int move[3] = {};
+    int* bestMove = &(move[0]);
     
     if (depth == 9) {
         bestMove[0] = 0;

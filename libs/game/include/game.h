@@ -8,6 +8,7 @@ class Game {
         bool isOver;
 
         Game();
+        void setGrid(int newgrid[3][3]);
         void printGrid();
         bool checkWinner(int i,int j);
         void doTurn(int turn,bool isHuman);
